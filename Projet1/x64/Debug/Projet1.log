@@ -1,4 +1,4 @@
 ﻿  Pokemon.cpp
-  Projet1.cpp
-  Generating Code...
-  Projet1.vcxproj -> C:\Users\leo.rocher\source\repos\RPG-CPP\x64\Debug\Projet1.exe
+D:\source\repos\RPG-CPP\Projet1\Pokemon.cpp(21,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\source\repos\RPG-CPP\Projet1\Pokemon.cpp(22,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Projet1.vcxproj -> D:\source\repos\RPG-CPP\x64\Debug\Projet1.exe
