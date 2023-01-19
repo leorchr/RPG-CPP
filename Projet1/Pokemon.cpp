@@ -11,15 +11,13 @@ Pokemon::Pokemon(std::string name, std::string description, int hp) {
 Pokemon::~Pokemon() {}
 
 void Pokemon::Attack(Pokemon& target, int ability) {
-	if(ability < 0 || ability > 3
-		|| mAbilities[ability].GetName() == "Default"
-		|| mAbilities[ability].GetPP() <= 0) {
-		cerr << mName << " n'a pas pu attaquer avec l'attaque " << ability << endl;
+	if (!CanAttack(ability)) {
 		return;
 	}
-
 	float coefficient = 1 + ((rand() % 4) - 2) / 10.0;
 	int damages = mAbilities[ability].GetDamages() * coefficient;
+
+	mAbilities[ability].Use();
 
 	cout << mName << " attaque " << target.mName << " avec " 
 		 << mAbilities[ability].GetName() << endl
@@ -56,4 +54,27 @@ void Pokemon::Learn(Ability ability, int place) {
 	}
 	mAbilities[place] = ability;
 	cout << mName << " a appris la capacite " << ability.GetName() << " a l'emplacement " << place + 1 << endl;
+}
+
+bool Pokemon::Dead() {
+	return (mHealthPoints <= 0);
+}
+
+void Pokemon::DisplayAttack() {
+	for (int i = 0; i < 4; i++) {
+		cout << i+1 << " - " << mAbilities[i].GetName()
+			 << " Puissance -> " << mAbilities[i].GetDamages()
+			 << " PP -> " << mAbilities[i].GetPP() << endl;
+	}
+
+}
+
+bool Pokemon::CanAttack(int ability) {
+	if (ability < 0 || ability > 3
+		|| mAbilities[ability].GetName() == "Default"
+		|| mAbilities[ability].GetPP() <= 0) {
+		cerr << mName << " n'a pas pu attaquer avec l'attaque " << ability << endl;
+		return false;
+	}
+	return true;
 }

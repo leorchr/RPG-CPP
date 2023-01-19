@@ -20,6 +20,6 @@ public:
 	int GetDamages();
 	int GetPP();
 	int GetPPMax();
-
+	void Use();
 };
 

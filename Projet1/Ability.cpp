@@ -22,8 +22,8 @@ Ability::Ability() {
 	mName = "Default";
 	mDescription = "Description manquante";
 	mDamages = 0;
-	mPP = 10;
-	mPPMax = 10;
+	mPP = 0;
+	mPPMax = 0;
 }
 
 
@@ -43,4 +43,8 @@ int Ability::GetPP() {
 
 int Ability::GetPPMax() {
 	return mPPMax;
+}
+
+void Ability::Use() {
+	mPP--;
 }
