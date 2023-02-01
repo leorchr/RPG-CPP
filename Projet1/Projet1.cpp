@@ -12,14 +12,14 @@ int main()
 	cout << (rand() % 10) << endl;
 	cout << "Let's play Pokemon!\n";
 	cout << "======================\n";
-	Pokemon Pikachu("Pikachu", "jaune", 15);
-	Pokemon Reshiram("Reshiram", "charismatique", 300);
-	Ability Eclair("Eclair", 10, 20);
-	Ability ViveAttaque("Vive Attaque", 15, 15);
-	Ability BouleElek("Boule Elek", 20, 5);
-	Ability FlammeCroix("Flamme Croix", 50,10);
-	Ability DracoChoc("Draco-Choc", 85, 5);
-	Ability Charge("Charge",5, 50);
+	Pokemon Pikachu("Pikachu", "jaune", 15, Elements::Electric);
+	Pokemon Reshiram("Reshiram", "charismatique", 300, Elements::Dragon);
+	Ability Eclair("Eclair", 10, 20, Elements::Electric);
+	Ability ViveAttaque("Vive Attaque", 15, 15, Elements::Normal);
+	Ability BouleElek("Boule Elek", 20, 5, Elements::Electric);
+	Ability FlammeCroix("Flamme Croix", 50,10, Elements::Fire);
+	Ability DracoChoc("Draco-Choc", 85, 5, Elements::Dragon);
+	Ability Charge("Charge", 5, 50, Elements::Normal);
 
 	Reshiram.Learn(FlammeCroix, 0);
 	Reshiram.Learn(DracoChoc, 1);
@@ -47,8 +47,8 @@ int main()
 		do {
 			cin >> mAnswer;
 			mAnswer--;
-			Reshiram.Attack(Pikachu, mAnswer);
 		} while (!Reshiram.CanAttack(mAnswer));
+		Reshiram.Attack(Pikachu, mAnswer);
 		cout << "==========================================\n";
 	}
 }

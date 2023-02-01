@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 
-Pokemon::Pokemon(std::string name, std::string description, int hp) {
+Pokemon::Pokemon(std::string name, std::string description, int hp, Elements type) {
 	mName = name;
 	mDescription = description;
 	mHealthPoints = hp;
+	mType = type;
 }
 
 Pokemon::~Pokemon() {}
@@ -62,19 +63,28 @@ bool Pokemon::Dead() {
 
 void Pokemon::DisplayAttack() {
 	for (int i = 0; i < 4; i++) {
-		cout << i+1 << " - " << mAbilities[i].GetName()
-			 << " Puissance -> " << mAbilities[i].GetDamages()
-			 << " PP -> " << mAbilities[i].GetPP() << endl;
+		if (mAbilities[i].GetName() != "Default") {
+			cout << i + 1 << " - " << mAbilities[i].GetName()
+				<< "\t | Puissance -> " << mAbilities[i].GetDamages()
+				<< "\t | PP -> " << mAbilities[i].GetPP() << " / " << mAbilities[i].GetPPMax()
+				<< endl;
+		}
+		else {
+			cout << i + 1 << " - " << "* \t" << "| Unassigned\n";
+		}
 	}
-
 }
 
 bool Pokemon::CanAttack(int ability) {
 	if (ability < 0 || ability > 3
 		|| mAbilities[ability].GetName() == "Default"
 		|| mAbilities[ability].GetPP() <= 0) {
-		cerr << mName << " n'a pas pu attaquer avec l'attaque " << ability << endl;
+		cerr << mName << " n'a pas pu attaquer avec l'attaque " << ability+1 << endl;
 		return false;
 	}
 	return true;
+}
+
+Elements Pokemon::GetType() {
+	return mType;
 }

@@ -1,8 +1,9 @@
 #include <string>
 #include <random>
 #include "Ability.h"
-
+#include "Elements.h"
 #pragma once
+
 class Pokemon
 {
 private :
@@ -11,9 +12,10 @@ private :
 	int mHealthPoints;
 	Ability mAbilities[4];
 	void PassOut();
+	Elements mType;
 
 public :
-	Pokemon(std::string name, std::string description, int hp);
+	Pokemon(std::string name, std::string description, int hp, Elements type);
 	~Pokemon();
 
 	void Attack(Pokemon& target, int ability);
@@ -24,5 +26,6 @@ public :
 	void Display();
 	bool Dead();
 	void DisplayAttack();
+	Elements GetType();
 };
 

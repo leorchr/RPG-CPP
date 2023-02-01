@@ -2,20 +2,22 @@
 #include <iostream>
 using namespace std;
 
-Ability::Ability(std::string name, std::string description, int damages, int ppmax) {
+Ability::Ability(std::string name, std::string description, int damages, int ppmax, Elements type) {
 	mName = name;
 	mDescription = description;
 	mDamages = damages;
 	mPP = ppmax;
 	mPPMax = ppmax;
+	mType = type;
 }
 
-Ability::Ability(std::string name, int damages, int ppmax) {
+Ability::Ability(std::string name, int damages, int ppmax, Elements type) {
 	mName = name;
 	mDescription = "Description manquante";
 	mDamages = damages;
 	mPP = ppmax;
 	mPPMax = ppmax;
+	mType = type;
 }
 
 Ability::Ability() {
@@ -24,6 +26,7 @@ Ability::Ability() {
 	mDamages = 0;
 	mPP = 0;
 	mPPMax = 0;
+	mType = Elements::Normal;
 }
 
 
@@ -45,6 +48,14 @@ int Ability::GetPPMax() {
 	return mPPMax;
 }
 
+Elements Ability::GetType() {
+	return mType;
+}
+
 void Ability::Use() {
 	mPP--;
+}
+
+void Ability::Reset() {
+	mPP = mPPMax;
 }

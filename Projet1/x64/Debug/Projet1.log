@@ -1,3 +1,4 @@
-﻿  Projet1.cpp
-D:\source\repos\RPG-CPP\Projet1\Projet1.cpp(11,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Pokemon.cpp
+D:\source\repos\RPG-CPP\Projet1\Pokemon.cpp(17,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\source\repos\RPG-CPP\Projet1\Pokemon.cpp(18,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Projet1.vcxproj -> D:\source\repos\RPG-CPP\x64\Debug\Projet1.exe
