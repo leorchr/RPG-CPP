@@ -4,23 +4,19 @@ enum class Elements {
 	Fire,
 	Water,
 	Grass,
-	Flying,
-	Fighting,
-	Poison,
 	Electric,
-	Ground,
-	Rock,
-	Psychic,
-	Ice,
-	Bug,
-	Ghost,
-	Steel,
-	Dragon,
-	Dark,
-	Fairy
+	Dragon
 };
 
-std::string ElementsToStr(Elements element) {
+float static ResistanceMat[6][6]{ 
+	{1,1,1,1,1,1},
+	{1,2,0.5,0.5,1,0.5},
+	{1,0.5,0.5,2,1,0.5},
+	{1,0.5,2,0.5,1,0.5},
+	{1,0.5,1,2,0.5,0.5},
+	{1,1,1,1,1,1} };
+
+std::string static ElementsToStr(Elements element) {
 	switch (element)
 	{
 	case Elements::Normal:
@@ -35,47 +31,11 @@ std::string ElementsToStr(Elements element) {
 	case Elements::Grass:
 		return "Grass";
 		break;
-	case Elements::Flying:
-		return "Flying";
-		break;
-	case Elements::Fighting:
-		return "Fighting";
-		break;
-	case Elements::Poison:
-		return "Poison";
-		break;
 	case Elements::Electric:
 		return "Electric";
 		break;
-	case Elements::Ground:
-		return "Ground";
-		break;
-	case Elements::Rock:
-		return "Rock";
-		break;
-	case Elements::Psychic:
-		return "Psychic";
-		break;
-	case Elements::Ice:
-		return "Ice";
-		break;
-	case Elements::Bug:
-		return "Bug";
-		break;
-	case Elements::Ghost:
-		return "Ghost";
-		break;
-	case Elements::Steel:
-		return "Steel";
-		break;
 	case Elements::Dragon:
 		return "Dragon";
-		break;
-	case Elements::Dark:
-		return "Dark";
-		break;
-	case Elements::Fairy:
-		return "Fairy";
 		break;
 	default:
 		return "Normal";

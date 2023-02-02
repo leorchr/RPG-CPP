@@ -16,15 +16,27 @@ void Pokemon::Attack(Pokemon& target, int ability) {
 		return;
 	}
 	float coefficient = 1 + ((rand() % 4) - 2) / 10.0;
-	int damages = mAbilities[ability].GetDamages() * coefficient;
+	int damages = mAbilities[ability].GetDamages() * GetBonusResistance(target,ability) * coefficient;
+
+	// DISPLAY BONUS RESISTANCE
+	if (GetBonusResistance(target, ability) == 0.5) {
+		cout << "Ce n'est pas tres efficace\n";
+	}
+	if (GetBonusResistance(target, ability) == 2) {
+		cout << "C'est tres efficace\n";
+	}
 
 	mAbilities[ability].Use();
-
 	cout << mName << " attaque " << target.mName << " avec " 
 		 << mAbilities[ability].GetName() << endl
 		 << "Il fait " << damages << " dommages.\n";
 	target.TakeDamage(damages);
 }
+
+float Pokemon::GetBonusResistance(Pokemon& target, int ability) {
+	return ResistanceMat[(int)mAbilities[ability].GetType()][(int)target.mType];
+}
+
 
 void Pokemon::TakeDamage(int damages) {
 	mHealthPoints -= damages;
@@ -67,6 +79,7 @@ void Pokemon::DisplayAttack() {
 			cout << i + 1 << " - " << mAbilities[i].GetName()
 				<< "\t | Puissance -> " << mAbilities[i].GetDamages()
 				<< "\t | PP -> " << mAbilities[i].GetPP() << " / " << mAbilities[i].GetPPMax()
+				<< "\t | Type -> " << ElementsToStr(mAbilities[i].GetType())
 				<< endl;
 		}
 		else {

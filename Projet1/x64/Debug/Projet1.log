@@ -1,4 +1,4 @@
 ﻿  Pokemon.cpp
-D:\source\repos\RPG-CPP\Projet1\Pokemon.cpp(17,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\source\repos\RPG-CPP\Projet1\Pokemon.cpp(18,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Projet1.vcxproj -> D:\source\repos\RPG-CPP\x64\Debug\Projet1.exe
+C:\Users\leo.rocher\Documents\GitHub\RPG-CPP\Projet1\Pokemon.cpp(18,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\leo.rocher\Documents\GitHub\RPG-CPP\Projet1\Pokemon.cpp(19,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Projet1.vcxproj -> C:\Users\leo.rocher\Documents\GitHub\RPG-CPP\x64\Debug\Projet1.exe

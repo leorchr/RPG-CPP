@@ -19,6 +19,7 @@ public :
 	~Pokemon();
 
 	void Attack(Pokemon& target, int ability);
+	float GetBonusResistance(Pokemon& target, int ability);
 	bool CanAttack(int ability);
 	void Learn(Ability ability,int place);
 	void TakeDamage(int damages);
